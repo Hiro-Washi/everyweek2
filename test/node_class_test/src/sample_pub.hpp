@@ -4,9 +4,8 @@
 
 // SubClass/ChildClass/DerivedClass <-> SuperClass/BaseClass/ParentClass
 //    {SubClass}         {SuperClass}
-class SamplePub : public rclcpp::Node
+class SamplePub : public rclcpp::Node {
                               // Node is the single point of entry for creating publishers and subscribers.
-{
 public:
   SamplePub();
 private:

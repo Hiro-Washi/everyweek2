@@ -1,4 +1,4 @@
-#include <memoty> // to use smart pointer
+#include <memory> // to use smart pointer
 #include <chrono> // to do Processing time measurement
 #include <string> // to use string class
                   //  and include these header, <initializer_list>, <compre>
@@ -9,10 +9,12 @@ using namespace std::chrono_literals; // Nice literal operator
 
 // Create TelePub Node Class, inheriting from rclcpp::Node
 class TelePub : public rclcpp::Node {
+                // 継承
   public:
     TelePub()
       //rcl::Node::Node( const std::string & node_name,
-      //                 const std::string & 	namespace_ = "",  <-Namespace of the node
+      //                 const std::string & namespace_ = "", 
+      //                                     (↑Namespace of the node)
       //                 	bool 	use_intra_process_comms = false )
     : Node("teleop2"), count_(0) // Message count inited to 0
     {
@@ -40,7 +42,7 @@ class TelePub : public rclcpp::Node {
 int main(int argc, char* argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<TelePub>());
+  rclcpp::spin(std::make_shared<TelePub>()); //--------------
   rclcpp::shutdown();
   return 0;
 }
